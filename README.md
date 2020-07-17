@@ -21,7 +21,9 @@ Drag n' drop prototype chips bugs
            
         
     Error control & boundries
-        -- Make the mouse reset while mouse down and out of browser screen space
+        -- It Makes the mouse reset while mouse down and out of browser screen space
+                -- Mouse error Control
+                #Possible Solutions
         -- Change chip location based on where mouse down and arrow are both at
 
 ----------------------------------------------------

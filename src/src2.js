@@ -19,7 +19,6 @@ let droppableBelow = null;
     //var ff=e.value();
     var f = e.getAttribute("value");
     console.log(f);
-    console.log("hi");
   
   
   
@@ -91,6 +90,86 @@ let droppableBelow = null;
       return false;
     };
     }
+  
+
+/* 1 dollar chip */
+
+
+chip1.onmousedown = function(event) { // (1) start the process
+  
+  // Can place in moveAt()
+  let shiftX = event.clientX - chip1.getBoundingClientRect().left;
+  let shiftY = event.clientY - chip1.getBoundingClientRect().top;
+    // (2) prepare to moving: make absolute and on top by z-index
+   
+    chip1.style.position = 'absolute';
+    chip1.style.zIndex = 1000;
+    // move it out of any current parents directly into body
+    // to make it positioned relative to the body
+    document.body.append(chip1);
+    //document.getElementsByClassName('red').style.backgroundColor = "purple";
+    // ...and put that absolutely positioned ball under the pointer
+    // centers the ball at (pageX, pageY) coordinates
+    function moveAt(pageX, pageY) {
+      chip1.style.left = pageX - chip1.offsetWidth / 2 + 'px';
+      chip1.style.top = pageY - chip1.offsetHeight / 2 + 'px';
+      // Shrink for handle usages
+      chip1.style.height = '20px';
+      chip1.style.width = '20px';
+/* TODO: if user presses esc while moving reset it */
+
+    }
+    moveAt(event.pageX, event.pageY);
+    function onMouseMove(event) {
+      moveAt(event.pageX, event.pageY);
+      chip1.hidden = true;
+      let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+      chip1.hidden = false;
+
+      if (!elemBelow) return;
+
+       droppableBelow = elemBelow.closest('.droppable');
+      
+
+
+    }
+    
+  
+    
+   
+  
+    // (3) move the ball on mousemove
+    document.addEventListener('mousemove', onMouseMove);
+  
+    // (4) drop the ball, remove unneeded handlers
+    chip1.onmouseup = function() {
+// VAlue of the chip entering the dropable area
+      var chp2=document.getElementById('chip1').getAttribute('value');
+//console.log(product+'hi');
+      if (currentDroppable != droppableBelow) {
+        if (currentDroppable) { // null when we were not over a droppable before this event
+          leaveDroppable(currentDroppable,chp2);
+        }
+        currentDroppable = droppableBelow;
+        if (currentDroppable) { // null if we're not coming over a droppable now
+          // (maybe just left the droppable)
+          enterDroppable(currentDroppable);
+        }
+      }
+      document.removeEventListener('mousemove', onMouseMove);
+      chip1.onmouseup = null;
+       //document.getElementsByClassName('.red').style.backgroundColor = "purple";
+    };
+  
+  };
+
+
+
+
+
+
+
+
   
 
 
@@ -482,6 +561,13 @@ f.append(val);
   
   
   }
+// 1 dollar 
+chip1.ondragstart = function(){
+  return false;
+}
+
+
+
 // 5 dollar
   chip2.ondragstart = function() {
     return false;
