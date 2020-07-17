@@ -13,7 +13,10 @@ let droppableBelow = null;
 
 
 
-  /* 1 dollar chip */
+  /* 1 dollar chip 
+     Other function that requires a double click and
+     mouse down drag currently obsolete
+  */
   
   function oneclick(e){
     //var ff=e.value();
@@ -92,6 +95,18 @@ let droppableBelow = null;
     }
   
 
+/*    
+    These mousedown functions work with bugs in it
+*** Solutions
+    See if refactoring the code works
+    See if turning it into a action handler works
+    Maybe try it in jquery or another language instead
+
+*/
+
+
+
+
 /* 1 dollar chip */
 
 
@@ -163,14 +178,6 @@ chip1.onmousedown = function(event) { // (1) start the process
   
   };
 
-
-
-
-
-
-
-
-  
 
 
 /* 5 dollar chip */
@@ -561,12 +568,12 @@ f.append(val);
   
   
   }
+
+
 // 1 dollar 
 chip1.ondragstart = function(){
   return false;
 }
-
-
 
 // 5 dollar
   chip2.ondragstart = function() {
