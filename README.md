@@ -1,5 +1,6 @@
 # Roulette-Pair_Programming
 
+index2.html is currently the one working
 
 An attempt to create Roulette the game. Lets get a pair programming project going see if it will workout on this repo
 
