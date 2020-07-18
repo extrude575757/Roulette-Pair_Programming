@@ -1,4 +1,8 @@
 /*  
+
+https://jqueryui.com/draggable/
+
+
 It is said when a mouse button is clicked it goes
 through at least 3 events onmousedown onmouseup, 
 next the mousemove event is fired once the mouse moves then 
@@ -13,7 +17,7 @@ clicked
     document.body.appendChild(dot);
   });
 
-
+https://eloquentjavascript.net/15_event.html
 Event handlers make it possible to detect and react to events happening in our web page. The addEventListener method is used to register such a handler.
 
 Each event has a type ("keydown", "focus", and so on) that identifies it. Most events are called on a specific DOM element and then propagate to that element’s ancestors, allowing handlers associated with those elements to handle them.
@@ -27,6 +31,17 @@ Scrolling can be detected with the "scroll" event, and focus changes can be dete
 
 
 Refactor with  using classes see if bugs leaves 
+
+if not 
+
+To drag the element we can use position:fixed, it makes coordinates easier to manage. At the end we should switch it back to position:absolute to lay the element into the document.
+
+When coordinates are at window top/bottom, we use window.scrollTo to scroll it.
+
+More details in the code, in comments.
+
+
+
 
 
 */
