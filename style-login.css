@@ -1,0 +1,132 @@
+:root {
+    --body-gradient-left: green;
+    --body-gradient-right: red;
+    --form-bg: #ffffff;
+    --input-bg: #E5E5E5;
+    --input-hover: #eaeaea;
+    --submit-bg: #1FCC44;
+    --submit-hover: #40e263;
+    --icon-color: #6b6b6b;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    background-image: linear-gradient(to right, var(--body-gradient-left), var(--body-gradient-right));
+    display: flex;
+}
+
+#form-wrapper {
+    width: 1000px;
+    height: 700px;
+    margin: auto;
+    background-color: var(--form-bg);
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5vw;
+    padding: 5vh 15px;
+}
+
+#form-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-left img {
+    width: 10rem;
+    height: 10rem;
+}
+
+#form-right {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    padding: 10% 5%;
+}
+
+.input-container {
+    background-color: var(--input-bg);
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.input-container:hover {
+    background-color: var(--input-hover)
+}
+
+.input-container,
+#input-submit {
+    height: 60px;
+    border-radius: 30px;
+    width: 100%;
+}
+
+.input-field {
+    color: var(--icon-color);
+    background-color: inherit;
+    width: 90%;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding-left: 30px;
+}
+
+#input-field:hover,
+.input-field:focus {
+    outline: none;
+}
+
+#input-submit {
+    background-color: var(--submit-bg);
+    padding-left: 0;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+#input-submit:hover {
+    background-color: var(--submit-hover);
+    transition: background-color, 1;
+    cursor: pointer;
+}
+
+h1,
+span {
+    text-align: center;
+}
+
+#create-account {
+    display: block;
+    position: relative;
+    top: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--submit-bg);
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--icon-color);
+}
+
+@media screen and (max-width:768px) {
+    #form-wrapper {
+        grid-template-columns: 1fr;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #form-left {
+        display: none;
+    }
+}
