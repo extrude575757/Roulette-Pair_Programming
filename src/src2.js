@@ -99,9 +99,13 @@ let droppableBelow = null;
     These mousedown functions work with bugs in it
 *** Solutions
     See if refactoring the code works
-    See if turning it into a action handler works
+      ** Try refactorting with it in classes
+    See if turning it into a action handler or window.addEventHandler(); works
+     window.addEventListener("click", () => {
+    console.log("You knocked?");
+  });
     Maybe try it in jquery or another language instead
-
+    Make it a php project and see it works then
 */
 
 
@@ -549,26 +553,6 @@ chip5.onmousedown = function(event) { // (1) start the process
   
 
 
-  function enterDroppable(elem) {
-    elem.style.background = 'pink';
-    
-  }
-
-  function leaveDroppable(elem,val) {
-
-  // ToDO: minus the val from the player stack
-   // alert('yowie'+val+'yodal');
-    elem.style.background = 'purple';
-    console.log(val);
-    var f = document.getElementById('score');
-f.append(val);
-//document.getElementById('score').innerHTML += val;
-
-  
-  
-  
-  }
-
 
 // 1 dollar 
 chip1.ondragstart = function(){
@@ -596,6 +580,28 @@ chip1.ondragstart = function(){
     return false;
   };
   
+
+
+
+  function enterDroppable(elem) {
+    elem.style.background = 'pink';
+    
+  }
+
+  function leaveDroppable(elem,val) {
+
+  // ToDO: minus the val from the player stack
+   // alert('yowie'+val+'yodal');
+    elem.style.background = 'purple';
+    console.log(val);
+    var f = document.getElementById('score');
+f.append(val);
+//document.getElementById('score').innerHTML += val;
+
+  
+  
+  
+  }
 
   
     //document.getElementById("div.parent > div#numCon > div.playerArea.player-row > div.child.child-3 > div.score").innerHTML = val;
